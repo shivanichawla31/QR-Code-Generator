@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+@media only screen and (max-width: 600px) {
+#qrcode, #container{
+width:100%;
+  }
+}
+    #container{
+        border:5px solid lightgreen;
+
+        margin:auto;
+        height:400px;
+        width:400px;
+        margin-top:70px;
+        border-top-left-radius: 34px;
+border-bottom-right-radius: 34px;
+        padding:20px;
+background-color:#D1FAF0;
+    }
+#qrcode{height:300px;width:100%;margin:auto;display: flex;
+  align-items: center;
+  justify-content: center;}
+    input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  
+  box-sizing: border-box;
+  border-bottom: 2px solid blue;
+background-color:#E6FF33;
+    }
+    input[type=text]:focus {
+  border: 1px solid beige;
+}
+.button {
+  
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+width:100%;
+border-radius:15px;
+}
+.button2 {
+  background-color: white; 
+  color:blue; 
+  border: 2px solid blue;
+font-family:Showcard Gothic;
+}
+
+.button2:hover {
+  background-color: blue;
+  color: white;
+}
+body{background-color:#DFFFFD}
+</style>
+<body>
+<h1 style="border-bottom:4px ridge red;text-align:center;background-color:lightgreen">QR-CODE GENERATOR</h1>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+   <div id="container"> <input type="text"id="data">
+    <button onclick="generate()"class="button button2">GENERATE QR CODE</button>
+    <div id="qrcode"></div></div>
+    <script>
+        function generate(){
+document.getElementById('qrcode').innerHTML=" ";
+        let text=document.getElementById('data').value;
+        let display=document.getElementById('qrcode');
+
+        new QRCode(display,text);
+        }
+        
+    </script>
+    
+</body>
+</html>
